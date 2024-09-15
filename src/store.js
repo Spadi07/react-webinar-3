@@ -1,3 +1,5 @@
+import { generateId } from './utils';
+
 /**
  * Хранилище состояния приложения
  */
@@ -44,7 +46,10 @@ class Store {
   addItem() {
     this.setState({
       ...this.state,
-      list: [...this.state.list, { code: this.state.counter, title: 'Новая запись', counter: 0 }],
+      list: [
+        ...this.state.list,
+        { code: generateId(this.state.counter, 10, 99), title: 'Новая запись', counter: 0 },
+      ],
       counter: this.state.counter + 1,
     });
   }

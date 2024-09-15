@@ -1,5 +1,5 @@
 import React from 'react';
-import { createElement } from './utils.js';
+import { createElement, getNoun } from './utils.js';
 import './styles.css';
 
 /**
@@ -28,7 +28,9 @@ function App({ store }) {
               >
                 <div className="Item-code">{item.code}</div>
                 <div className="Item-title">{item.title}</div>
-                {item.counter !== 0 && <div className="Item-counter">{`Выделяли ${item.counter} раз`}</div>}
+                {item.counter !== 0 && (
+                  <div className="Item-counter">{`| Выделяли ${item.counter} ${getNoun(item.counter, 'раз', 'раза', 'раз')}`}</div>
+                )}
                 <div className="Item-actions">
                   <button onClick={() => store.deleteItem(item.code)}>Удалить</button>
                 </div>

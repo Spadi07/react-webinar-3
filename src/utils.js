@@ -26,3 +26,23 @@ export function createElement(name, props = {}, ...children) {
 
   return element;
 }
+
+export function getNoun(number, one, two, five) {
+  let n = Math.abs(number);
+  n %= 100;
+  if (n >= 5 && n <= 20) {
+    return five;
+  }
+  n %= 10;
+  if (n === 1) {
+    return one;
+  }
+  if (n >= 2 && n <= 4) {
+    return two;
+  }
+  return five;
+}
+
+export function generateId(counter, min, max) {
+  return counter + String(Math.round(Math.random() * (max - min) + min));
+}

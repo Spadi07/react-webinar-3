@@ -4,18 +4,19 @@ import { createElement } from './utils.js';
 import App from './app.js';
 import Store from './store.js';
 
-const list = 
-[{ code: 1, title: 'Название элемента', counter: 0 },
-{ code: 2, title: 'Некий объект', counter: 0 },
-{ code: 3, title: 'Заголовок', counter: 0 },
-{ code: 4, title: 'Очень длинное название элемента из семи слов', counter: 0 },
-{ code: 5, title: 'Запись', counter: 0 },
-{ code: 6, title: 'Шестая запись', counter: 0 },
-{ code: 7, title: 'Седьмая запись', counter: 0 }];
+const list = [
+  { code: 1, title: 'Название элемента', counter: 0 },
+  { code: 2, title: 'Некий объект', counter: 0 },
+  { code: 3, title: 'Заголовок', counter: 0 },
+  { code: 4, title: 'Очень длинное название элемента из семи слов', counter: 0 },
+  { code: 5, title: 'Запись', counter: 0 },
+  { code: 6, title: 'Шестая запись', counter: 0 },
+  { code: 7, title: 'Седьмая запись', counter: 0 },
+];
 
 const store = new Store({
   list,
-  counter: list.length + 1,
+  counter: Math.max(...list.map(item => item.code)) + 1,
 });
 
 const root = createRoot(document.getElementById('root'));
